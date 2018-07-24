@@ -13,6 +13,7 @@ pygame.display.set_caption("Moja gra", "Gra")
 Done: bool = False
 paranoid = Desk()
 ball = Ball()
+obstacles = []
 while not Done:
     for event in Event.get():
         if event.type == pygame.QUIT:
@@ -23,7 +24,7 @@ while not Done:
 
     screen.fill((255, 255, 255))
     paranoid.update(keys)
-    ball.update()
+    ball.update(obstacles)
     pygame.display.flip()
     Clock().tick(40)
 
