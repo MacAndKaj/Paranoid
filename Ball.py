@@ -9,7 +9,7 @@ class Ball(object):
     prevposition = [int(0.5 * SIZEX), int(0.7 * SIZEY)]
     radius = 10
     step = 10
-    direction = 45  # degrees
+    direction = 30  # degrees
 
     def __init__(self) -> None:
         self.Rectangle = Rect(self.position, (self.radius, self.radius))
