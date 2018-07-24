@@ -5,34 +5,33 @@ from math import cos, sin, radians
 
 
 class Ball(object):
-    position = [int(0.5 * SIZEX), int(0.7 * SIZEY)]
-    prevposition = [int(0.5 * SIZEX), int(0.7 * SIZEY)]
+    position = [int(0.5 * SCREEN_WIDTH), int(0.7 * SCREEN_HEIGHT)]
     radius = 10
     step = 10
-    direction = -20  # degrees
+    angleOfDirection = -60  # degrees
 
     def __init__(self) -> None:
         self.Rectangle = Rect(self.position, (self.radius, self.radius))
 
     def __setPosition(self):
-        self.position[0] += int(self.step * cos(radians(self.direction)))
-        self.position[1] += int(self.step * sin(radians(self.direction)))
+        self.position[0] += int(self.step * cos(radians(self.angleOfDirection)))
+        self.position[1] += int(self.step * sin(radians(self.angleOfDirection)))
 
     def __borders(self):
-        if self.position[0] >= SIZEX - self.radius:
-            self.direction = 180-self.direction
+        if self.position[0] >= SCREEN_WIDTH - self.radius:
+            self.angleOfDirection = STRAIGHT_ANGLE - self.angleOfDirection
         elif self.position[0] <= self.radius:
-            self.direction = 180-self.direction
-        elif self.position[1] >= SIZEY - self.radius:
-            print(self.direction, '3')
-            self.direction = (0-self.direction)
+            self.angleOfDirection = STRAIGHT_ANGLE - self.angleOfDirection
+        elif self.position[1] >= SCREEN_HEIGHT - self.radius:
+            print(self.angleOfDirection, '3')
+            self.angleOfDirection = -self.angleOfDirection
         elif self.position[1] <= self.radius:
-            print(self.direction, '4')
-            self.direction = (0-self.direction)
+            print(self.angleOfDirection, '4')
+            self.angleOfDirection = -self.angleOfDirection
 
     def __handleDirection(self,obstacles):
-        if SIZEX - self.radius > self.position[0] > self.radius and \
-                SIZEY - self.radius > self.position[1] > self.radius:
+        if SCREEN_WIDTH - self.radius > self.position[0] > self.radius and \
+                SCREEN_HEIGHT - self.radius > self.position[1] > self.radius:
             self.__setPosition()
         else:
             self.__borders()

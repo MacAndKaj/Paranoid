@@ -8,7 +8,7 @@ from Desk import Desk
 from Consts import *
 
 pygame.init()
-screen = pygame.display.set_mode((SIZEX, SIZEY))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Moja gra", "Gra")
 Done: bool = False
 paranoid = Desk()

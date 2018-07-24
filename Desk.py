@@ -4,7 +4,7 @@ from Consts import *
 
 class Desk(object):
     direction = dict(RIGHT=False, LEFT=False)
-    position = [int(0.5*SIZEX-50), int(0.8*SIZEY)]
+    position = [int(0.5 * SCREEN_WIDTH - 50), int(0.8 * SCREEN_HEIGHT)]
     size = (100, 20)
 
     def __init__(self) -> None:
@@ -20,7 +20,7 @@ class Desk(object):
             if not self.position[0] < 0:
                 self.position[0] -= 10
         if self.direction['RIGHT'] and not self.direction['LEFT']:
-            if not self.position[0] > SIZEX-self.size[0]:
+            if not self.position[0] > SCREEN_WIDTH - self.size[0]:
                 self.position[0] += 10
 
     def __setDir(self, keys: dict):
