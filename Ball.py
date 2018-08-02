@@ -8,7 +8,7 @@ class Ball(object):
     position = [int(0.5 * SCREEN_WIDTH), int(0.7 * SCREEN_HEIGHT)]
     radius = 10
     step = 10
-    angleOfDirection = -60  # degrees
+    angleOfDirection = -20  # degrees
 
     def __init__(self) -> None:
         self.Rectangle = Rect(self.position, (self.radius, self.radius))
@@ -23,10 +23,8 @@ class Ball(object):
         elif self.position[0] <= self.radius:
             self.angleOfDirection = STRAIGHT_ANGLE - self.angleOfDirection
         elif self.position[1] >= SCREEN_HEIGHT - self.radius:
-            print(self.angleOfDirection, '3')
             self.angleOfDirection = -self.angleOfDirection
         elif self.position[1] <= self.radius:
-            print(self.angleOfDirection, '4')
             self.angleOfDirection = -self.angleOfDirection
 
     def __handleDirection(self,obstacles):
