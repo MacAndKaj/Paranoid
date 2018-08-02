@@ -8,7 +8,7 @@ class Ball(object):
     position = [int(0.5 * SCREEN_WIDTH), int(0.7 * SCREEN_HEIGHT)]
     radius = 10
     step = 10
-    angleOfDirection = -20  # degrees
+    angleOfDirection = -45  # degrees
 
     def __init__(self) -> None:
         self.Rectangle = Rect(self.position, (self.radius, self.radius))
