@@ -1,5 +1,4 @@
 from pygame import Rect, display, draw
-from pygame.constants import *
 from Consts import *
 from math import cos, sin, radians
 
